@@ -5,6 +5,22 @@ one in turn.
 """
 
 
+def dropOff():
+    print()
+
+
+def pickUp():
+    print()
+
+
+def calcCost():
+    print()
+
+
+def printRoll():
+    print()
+
+
 choice = 0
 while choice != 5:
     print("-------------------------------------------------------------------"
