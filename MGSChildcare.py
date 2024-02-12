@@ -5,6 +5,20 @@ one in turn.
 """
 
 
+def number_checker(question):
+    error = "\nYou must enter a valid number\n"
+    number = ""
+    while not :
+        try:
+            number = int(input(question))
+            return number
+        except ValueError:
+            print(error)
+
+    while not 1 <= choice <= 5:
+        print("Choice can only be between 1 and 5")
+        choice = number_checker("Enter your choice (number between 1 and 5): ")
+
 def dropOff():
     print()
 
@@ -36,8 +50,13 @@ while choice != 5:
     print("4 Print roll")
     print("5 Exit the system")
     print()
-    choice = int(input("Enter your choice (number between 1 and 5): "))
+    choice = number_checker("Enter your choice (number between 1 and 5): ")
     print()
+
+    length = number_checker("Enter the length of required concrete - in "
+                            "centimeters: ")
+    width = number_checker("Enter the width of required concrete - in "
+                           "centimeters: ")
 
     if choice == 1:
         dropOff()
