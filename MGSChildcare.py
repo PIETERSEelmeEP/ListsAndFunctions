@@ -32,24 +32,29 @@ def pickUp():
 
 
 def calcCost():
-    print()
+    hours = int(input("Enter the number of hours: "))
+    cost_per_child = 12
+    total_children = len(children)
+    total_cost = total_children * cost_per_child * hours
+    print(f"The total charge for {total_children} children for {hours} hours "
+          f"is ${total_cost}.")
 
 
 def printRoll():
-    print()
+    total_children = len(children)
+    print("Children currently checked in:")
+    for child in children:
+        print(child)
+    if total_children == 0:
+        print("There are no children currently checked in")
 
 
 # Main Routine
 children = []
 choice = 0
 while choice != 5:
-    print("-------------------------------------------------------------------"
-          "----")
     print("Welcome to MGS Childcare")
     print("What would you like to do? Please choose one of the items below")
-    print("-------------------------------------------------------------------"
-          "----")
-    print()
     print("1 Drop off a child")
     print("2 Pick up a child")
     print("3 Calculate cost")
