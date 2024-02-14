@@ -17,11 +17,18 @@ def number_checker(question):
 
 
 def dropOff():
-    print()
+    name = input("Enter the name of the child to drop off: ")
+    children.append(name)
+    print(f"{name} has been checked in.")
 
 
 def pickUp():
-    print()
+    name = input("Enter the name of the child to pick up: ")
+    if name in children:
+        children.remove(name)
+        print(f"{name} has been checked out.")
+    else:
+        print(f"Error: {name} is not checked in.")
 
 
 def calcCost():
