@@ -33,6 +33,7 @@ def printRoll():
 
 
 # Main Routine
+children = []
 choice = 0
 while choice != 5:
     print("-------------------------------------------------------------------"
