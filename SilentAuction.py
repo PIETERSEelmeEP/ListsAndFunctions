@@ -35,13 +35,11 @@ def price_checker(question):
 
 
 def highest_bidding():
-    highest_bid = RESERVE_PRICE
+    highest_bid = 0
     while True:
         print(f"Highest bid so far is ${highest_bid:.2f}")
         bid = input("What is your bid?(To finish bid enter -1): $")
         if bid == "-1":
-            print(f"\nThe auction for the {AUCTIONED_ITEM} finished with a "
-                  f"bid of ${highest_bid:.2f}")
             break
         try:
             bid = float(bid)
@@ -54,6 +52,11 @@ def highest_bidding():
         except ValueError:
             print("Invalid input. Please enter a valid number.")
             continue
+    if highest_bid >= RESERVE_PRICE:
+        print(f"\nThe auction for the {AUCTIONED_ITEM} finished with a bid "
+              f"of ${highest_bid:.2f}")
+    else:
+        print(f"\nThe {AUCTIONED_ITEM} did not sell")
 
 
 # Main Routine
