@@ -23,26 +23,37 @@ def answer_checker(question):
             print(error)
 
 
-def number_checker(question):
+def price_checker(question):
     error = "\nYou must enter a valid price\n"
-    number = ""
-    while not number:
+    price = ""
+    while not price:
         try:
-            number = int(input(question))
-            return number
+            price = float(input(question))
+            return price
         except ValueError:
             print(error)
 
 
-def highest_bid():
+def highest_bidding():
     highest_bid = 0
-    
+    while True:
+        print(f"Highest bid so far is ${highest_bid:.2f}")
+        bid = input("What is your bid? ")
+        if bid == "-1":
+            break
+        try:
+            bid = float(bid)
+            if bid <= highest_bid:
+                print("Please enter a higher bid")
+                continue
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+            continue
 
 
 # Main Routine
 AUCTIONED_ITEM = answer_checker("What is the auction for: ")
-print(AUCTIONED_ITEM)
-RESERVE_PRICE = number_checker("What is the reserve price")
+RESERVE_PRICE = price_checker("What is the reserve price: ")
 print()
 print(f"The auction for the {AUCTIONED_ITEM} has started!")
-highest_bid()
+highest_bidding()
