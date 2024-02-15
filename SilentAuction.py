@@ -35,13 +35,13 @@ def price_checker(question):
 
 
 def highest_bidding():
-    highest_bid = 0
+    highest_bid = RESERVE_PRICE
     while True:
         print(f"Highest bid so far is ${highest_bid:.2f}")
-        bid = input("What is your bid? ")
+        bid = input("What is your bid?(To finish bid enter -1): $")
         if bid == "-1":
-            print(f"The auction for the {AUCTIONED_ITEM} finished with a bid "
-                  f"of ${bid}")
+            print(f"\nThe auction for the {AUCTIONED_ITEM} finished with a "
+                  f"bid of ${highest_bid:.2f}")
             break
         try:
             bid = float(bid)
