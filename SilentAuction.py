@@ -23,5 +23,26 @@ def answer_checker(question):
             print(error)
 
 
-auctioned_item = answer_checker("What is the auction for: ")
-print(auctioned_item)
+def number_checker(question):
+    error = "\nYou must enter a valid price\n"
+    number = ""
+    while not number:
+        try:
+            number = int(input(question))
+            return number
+        except ValueError:
+            print(error)
+
+
+def highest_bid():
+    highest_bid = 0
+    
+
+
+# Main Routine
+AUCTIONED_ITEM = answer_checker("What is the auction for: ")
+print(AUCTIONED_ITEM)
+RESERVE_PRICE = number_checker("What is the reserve price")
+print()
+print(f"The auction for the {AUCTIONED_ITEM} has started!")
+highest_bid()
