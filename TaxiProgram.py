@@ -11,7 +11,7 @@ def number_checker(question):
     number = ""
     while not number:
         try:
-            number = int(input(question))
+            number = float(input(question))
             return number
         except ValueError:
             print(error)
@@ -55,12 +55,13 @@ def new_trip():
                                           "in minutes: ")
             COST_PER_MINUTE = 2
             final_cost = time_minutes * COST_PER_MINUTE + FIXED_COST
-            print(f"ThIS trip cost ${final_cost:.2f}\n")
+            print(f"This trip cost ${final_cost:.2f}\n")
             total_time += time_minutes
             total_income += final_cost
             total_trips += 1
         if start_new_trip == "no":
-            average_time = total_time
+            average_time = total_time / total_trips
+            average_cost = total_income / total_trips
             print(30 * "--")
             print(f"Driver {driver_name} had {total_trips} trips totalling "
                   f"{total_time} minutes")
