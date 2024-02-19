@@ -43,7 +43,9 @@ def yes_no_checker(question):
 
 
 def new_trip():
+    total_trips = 0
     total_time = 0
+    total_income = 0
     while True:
         start_new_trip = answer_checker("Do you want to start a new "
                                         "trip -- Yes or No: ").lower()
@@ -55,12 +57,17 @@ def new_trip():
             final_cost = time_minutes * COST_PER_MINUTE + FIXED_COST
             print(f"ThIS trip cost ${final_cost:.2f}\n")
             total_time += time_minutes
-            
+            total_income += final_cost
+            total_trips += 1
         if start_new_trip == "no":
+            average_time = total_time
             print(30 * "--")
-            print(f"Driver {driver_name} had ")
-            print(f"Name of driver is: {driver_name}")
-            print(f"Total time of all the trips is {total_time} minutes")
+            print(f"Driver {driver_name} had {total_trips} trips totalling "
+                  f"{total_time} minutes")
+            print(f"The average time of all the trips was "
+                  f"{average_time} minutes")
+            print(f"The total income for the day was ${total_income}")
+            print(f"The average cost of all the trips was ${average_cost}")
             return
 
 
