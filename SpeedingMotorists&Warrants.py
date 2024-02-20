@@ -5,6 +5,7 @@ an outstanding warrant to arrest the speeder.
 
 
 def issue_ticket(name, speed):
+    global total_fines
     fine = calculate_fine(speed)
     total_fines += fine
     if name in wanted_list:
@@ -35,7 +36,26 @@ def calculate_fine(speed):
         return 630
 
 
+def display_summary():
+    print(f"Total fines: {len(speeders)}")
+    for name, speed in speeders:
+        print(f"Name: {name} Amount Over Limit: {speed}")
+    print(f"Total amount of fines: ${total_fines}")
+
+
 # Main Routine
 speeders = []
 wanted_list = {"James Wilson", "Helga Norman", "Zachary Conroy"}
 total_fines = 0
+while True:
+    print()
+    name = input("Enter name of speeder -- to display summary enter 'exit': ")
+    if name == "exit":
+        print()
+        print("#" * 20)
+        print("Summary of the day: ")
+        break
+    speed = int(input("Enter the amount over speed limit - in km/h: "))
+    issue_ticket(name, speed)
+    print("#" * 20)
+display_summary()
