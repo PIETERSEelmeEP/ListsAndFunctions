@@ -6,6 +6,12 @@ an outstanding warrant to arrest the speeder.
 
 def issue_ticket(name, speed):
     fine = calculate_fine(speed)
+    total_fines += fine
+    if name in wanted_list:
+        print(f"{name.upper()} -- WARRANT TO ARREST")
+    else:
+        print(f"{name} to be fined ${fine}")
+    speeders.append((name, speed))
 
 
 def calculate_fine(speed):
