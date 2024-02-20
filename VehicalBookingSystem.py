@@ -5,9 +5,9 @@ def display_available_vehicles(seats_needed):
         if vehicle[2] >= seats_needed and vehicle[3]:
             print(f"No. {vehicle[0]} - {vehicle[1]} - {vehicle[2]} seats")
             available_count += 1
-        else:
+        elif vehicle[3]:
             print(f"No. {vehicle[0]} - {vehicle[1]} - {vehicle[2]} seats - "
-                  f"NOTE: Not enough seats")
+                  f"NOTE: Not have enough seats")
     return available_count
 
 
@@ -26,20 +26,24 @@ VEHICLE_LIST = [
 
 booked_vehicles = []
 
+print("Vehicle Booking System")
+print("Enter -1 to quit at any time.")
+
 while True:
-    print("\n")
-    number_seats = int(input("Please enter the number of seats required (Type "
-                             "-1 to quit): "))
-    if number_seats == -1:
-        break
-    available_count = display_available_vehicles(number_seats)
-    if available_count == 0:
-        print("No vehicles available with the specified number of seats.")
-        continue
     while True:
-        vehicle_number = int(input("Enter a number to book (-1 to go back): "))
-        if vehicle_number == -1:
+        print()
+        number_seats = int(input("Please enter the number of seats required: "
+                                 ""))
+        if number_seats == -1:
             break
+        print()
+        available_count = display_available_vehicles(number_seats)
+        print()
+        if available_count == 0:
+            print("No vehicles available with the specified number of seats.")
+            break
+        vehicle_number = int(input("Enter the number of the vehicle to be "
+                                   "booked: "))
         if vehicle_number < 1 or vehicle_number > len(VEHICLE_LIST):
             print("Invalid vehicle number. Please try again.")
             continue
@@ -48,14 +52,17 @@ while True:
                   "vehicle.")
             continue
         name = input("Enter your name: ")
-        booked_vehicles.append((vehicle_number, VEHICLE_LIST[vehicle_number
-                                                             - 1][1], name))
+        booked_vehicles.append((vehicle_number, VEHICLE_LIST[vehicle_number -
+                                                             1][1], name))
+        print(f"{VEHICLE_LIST[vehicle_number - 1][1]} booked by {name}")
         VEHICLE_LIST[vehicle_number - 1] = (VEHICLE_LIST[vehicle_number - 1][0]
                                             , VEHICLE_LIST[vehicle_number - 1]
                                             [1], VEHICLE_LIST[vehicle_number -
                                                               1][2], False)
-        print(f"{VEHICLE_LIST[vehicle_number - 1][1]} booked by {name}")
+        print("#" * 20)
+    if number_seats == -1:
+        break
 
-print("\nVEHICLES BOOKED TODAY\n")
+print("\nVEHICLES BOOKED TODAY:\n")
 for vehicle in booked_vehicles:
     print(f"No. {vehicle[0]} - {vehicle[1]} - Booked by: {vehicle[2]}")
