@@ -21,7 +21,10 @@ def calculate_average(absences):
 
 
 def find_most_absent(absences):
-    most_absent = max(absences, key=lambda x:x[1])
+    most_absent = absences[0]
+    for item in absences:
+        if item[1] > most_absent[1]:
+            most_absent = item
     return most_absent
 
 
@@ -31,9 +34,20 @@ def find_not_absent(absences):
 
 
 def find_above_average(absences, average):
-    above_average = [(name, days) for name, days in absences if days > average]
-    above_average.sort(key=lambda x: x[1], reverse=True)
-    return above_average
+    above_average = []
+    for name, days in absences:
+        if days > average:
+            above_average.append((name, days))
+    if above_average:
+        max_days = above_average[0][1]
+        most_absent = above_average[0]
+        for name, days in above_average:
+            if days > max_days:
+                max_days = days
+                most_absent = (name, days)
+        return most_absent
+    else:
+        return None
 
 
 def main():
