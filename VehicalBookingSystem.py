@@ -5,7 +5,5 @@ the day, and keeps track of which vehicles have already been booked.
 
 
 # Main Routine
-print("Enter vehicle details:")
-number = input("Vehicle number: ")
-car_type = input("Car type: ")
-seats = input("Number of seats: ")
+number_seats = int(input("Please enter the number of seats required (Type -1 "
+                         "to quit): "))
