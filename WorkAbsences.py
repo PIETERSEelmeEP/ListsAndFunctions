@@ -32,7 +32,7 @@ def find_not_absent(absences):
 
 def find_above_average(absences, average):
     above_average = [(name, days) for name, days in absences if days > average]
-    above_average.sort(key=lambda x:x[1], reverse=True)
+    above_average.sort(key=lambda x: x[1], reverse=True)
     return above_average
 
 
@@ -44,15 +44,15 @@ def main():
     average = calculate_average(absences)
     most_absent = find_most_absent(absences)
     not_absent = find_not_absent(absences)
-    above_average = find_above_average(absences)
-    print(f"Average number of days staff were absent {average:.2f}")
-    print(f"Person with most days absent: {most_absent[0]} with {most_absent[1]} "
-          f"days")
+    above_average = find_above_average(absences, average)
+    print(f"Average number of days staff were absent: {average:.2f}")
+    print(f"Person with most days absent: {most_absent[0]} with "
+          f"{most_absent[1]} days")
     print("List of people not absent at all:")
     for name in not_absent:
         print(name)
     print("List of people absent above average:")
-    for name in above_average:
+    for name, days in above_average:
         print(f"{name} {days}")
 
 
