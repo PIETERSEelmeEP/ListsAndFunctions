@@ -33,7 +33,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.WorkAbsences">
+  <component name="RunManager" selected="Python.VehicalBookingSystem">
     <configuration name="SilentAuction" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="ListsAndFunctions" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -141,8 +141,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.WorkAbsences" />
         <item itemvalue="Python.VehicalBookingSystem" />
+        <item itemvalue="Python.WorkAbsences" />
         <item itemvalue="Python.SpeedingMotorists&amp;Warrants" />
         <item itemvalue="Python.TaxiProgram" />
         <item itemvalue="Python.SilentAuction" />
